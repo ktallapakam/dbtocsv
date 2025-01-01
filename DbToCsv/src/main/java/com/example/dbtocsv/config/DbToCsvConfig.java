@@ -42,6 +42,7 @@ public class DbToCsvConfig
     @Bean
     public Job dbtocsv(JobRepository jobRepository, PlatformTransactionManager transactionManager)
     {
+        log.info("Testin purpose");
         log.info("dbtocsv");
         return new JobBuilder("dbtocsv", jobRepository)
                 .incrementer(new RunIdIncrementer())
