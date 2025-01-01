@@ -70,7 +70,6 @@ public class DbToCsvConfig
         JdbcCursorItemReader<Student> itemReader = new JdbcCursorItemReader<Student>();
         itemReader.setSql("select * from student");
         itemReader.setDataSource(dataSource);
-
         itemReader.setRowMapper(new RowMapper<Student>() {
             @Override
             public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
