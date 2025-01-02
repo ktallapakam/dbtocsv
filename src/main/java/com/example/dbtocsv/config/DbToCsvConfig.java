@@ -66,7 +66,6 @@ public class DbToCsvConfig
     {
         log.info("dbReader");
         log.info("D***atasource: {}", dataSource);
-
         JdbcCursorItemReader<Student> itemReader = new JdbcCursorItemReader<Student>();
         itemReader.setSql("select * from student");
         itemReader.setDataSource(dataSource);
