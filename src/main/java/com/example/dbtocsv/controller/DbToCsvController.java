@@ -1,6 +1,7 @@
 package com.example.dbtocsv.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/createCSV")
 @RequiredArgsConstructor
+@Slf4j
 public class DbToCsvController
 {
     private final JobLauncher jobLauncher;
@@ -21,6 +23,7 @@ public class DbToCsvController
     @GetMapping("/create")
     public void createFile()
     {
+        log.info("DbToCsvController");
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("startedAt",System.currentTimeMillis()).toJobParameters();
         try {
