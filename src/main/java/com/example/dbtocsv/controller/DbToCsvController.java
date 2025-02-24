@@ -28,6 +28,7 @@ public class DbToCsvController
                 .addLong("startedAt",System.currentTimeMillis()).toJobParameters();
         try {
             jobLauncher.run(job, jobParameters);
+            
         } catch (JobExecutionAlreadyRunningException | JobRestartException |
                  JobInstanceAlreadyCompleteException | JobParametersInvalidException e) {
             throw new RuntimeException(e);
