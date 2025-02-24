@@ -43,6 +43,7 @@ public class DbToCsvConfig
     public Job dbtocsv(JobRepository jobRepository, PlatformTransactionManager transactionManager)
     {
         log.info("dbtocsv");
+        log.info("********Test");
         return new JobBuilder("dbtocsv", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .flow(dbtocsvStep(jobRepository, transactionManager))
