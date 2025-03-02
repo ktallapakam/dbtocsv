@@ -1,6 +1,5 @@
 package com.example.dbtocsv.config;
 
-
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,8 +27,6 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.PlatformTransactionManager;
 
-
-
 @Slf4j
 @Configuration
 @EnableBatchProcessing
@@ -43,7 +40,6 @@ public class DbToCsvConfig
     public Job dbtocsv(JobRepository jobRepository, PlatformTransactionManager transactionManager)
     {
         log.info("dbtocsv");
-        log.info("********Test");
         return new JobBuilder("dbtocsv", jobRepository)
                 .incrementer(new RunIdIncrementer())
                 .flow(dbtocsvStep(jobRepository, transactionManager))
